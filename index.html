@@ -325,4 +325,11 @@ document.querySelector('#enquiry').addEventListener('submit',async e=>{
  document.getElementById('story-forward')?.addEventListener('click',()=>go(1));
  viewport.addEventListener('scroll',update,{passive:true});
 })();
-</script><script>document.addEventListener('click',e=>{document.querySelectorAll('.service-dropdown[open]').forEach(d=>{if(!d.contains(e.target))d.removeAttribute('open')})});</script></body></html>
+</script><script>document.addEventListener('click',e=>{document.querySelectorAll('.service-dropdown[open]').forEach(d=>{if(!d.contains(e.target))d.removeAttribute('open')})});</script><script>// Direct consultation links from service pages open the enquiry form immediately.
+if (new URLSearchParams(window.location.search).get('enquiry') === '1') {
+  window.addEventListener('load', function () {
+    const trigger = document.querySelector('.openform');
+    if (trigger) trigger.click();
+  });
+}
+</script></body></html>
